@@ -1,0 +1,4 @@
+./test3.txt 512
+./test5.txt 512
+./test4.txt 1024
+./test2.txt 512
