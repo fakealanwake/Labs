@@ -61,10 +61,10 @@ fi
 
 find . -type f -name "*$SUFFIX" -not -executable | while read -r file; do
     
-    size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null)
+    size=$(stat -c%s "$file" 2>/dev/null)
     
     
-    if [ $((size % BLOCK_SIZE)) -eq 0 ]; then
+    if [ "$size" -ne 0 ]  && [ $((size % BLOCK_SIZE)) -eq 0 ]; then
         
         echo "$file $size" >> "$OUTPUT_FILE"
     fi
